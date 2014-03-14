@@ -11,11 +11,13 @@ __all__ = ["PinYin"]
 
 import os.path
 
+ROOT = os.path.dirname(os.path.abspath(__file__))
+path = lambda *a: os.path.join(ROOT, *a)
 
 class PinYin(object):
     def __init__(self, dict_file='word.data'):
         self.word_dict = {}
-        self.dict_file = dict_file
+        self.dict_file = path(dict_file)
         self.load_word()
 
     def load_word(self):
